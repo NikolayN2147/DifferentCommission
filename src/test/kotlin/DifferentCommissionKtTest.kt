@@ -25,7 +25,7 @@ class DifferentCommissionKtTest {
 
         val result  = comissionVkpay * moneyMaster
 
-        assertEquals(65,result.toInt())
+        assertEquals(60,result.toInt())
 
 
     }
