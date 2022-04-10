@@ -1,36 +1,36 @@
-const val money: Int = 1000100
 
-const val VK_PAY = "VkPay"
-const val MASTERCARD = "Mastercard"
-const val MAESTRO = "Maestro"
-const val VISA = "Visa"
-const val MIR = "Mir"
+const val money: Int = 100
 
+var comission: Double = 0.0
+
+const val VK_PAY = 0.0
+const val MASTERCARD_MAESTRO = 0.006
+const val VISA_MIR = 0.0075
 
 fun main() {
-    commissionCalculation(money, MIR)
+    commissionCalculation(money, VISA_MIR)
 }
 
-fun commissionCalculation(money: Int, card: String) {
-    val comissionMasterMaestro = 0.006
-    val comissionVisaMir = 0.0075
-    val comissionVkPay = 0.0
-    var comission: Double
+fun commissionCalculation(money: Int, card: Double) {
+
     when (card) {
         VK_PAY -> {
-            comission = comissionVkPay * money
+            comission = VK_PAY * money
             comissionPrint(comission)
         }
-        MASTERCARD, MAESTRO -> {
-            comission = comissionMasterMaestro * money + 20
+        MASTERCARD_MAESTRO -> {
+            comission = MASTERCARD_MAESTRO * money + 20
             comissionPrint(comission)
         }
-        VISA, MIR -> {
-            comission = comissionVisaMir * money
+        VISA_MIR -> {
+            comission = VISA_MIR * money
             if (comission < 35) {
                 comission = 35.0
                 comissionPrint(comission)
-            } else comissionPrint(comission)
+            } else {
+                comission = VISA_MIR * money
+                comissionPrint(comission)
+            }
         }
     }
 }
