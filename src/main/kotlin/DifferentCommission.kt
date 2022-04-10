@@ -1,5 +1,5 @@
 
-const val money: Int = 100
+const val money: Int = 10000
 
 var comission: Double = 0.0
 
